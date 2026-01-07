@@ -1,3 +1,11 @@
+const consoleLog = document.getElementById("consoleLog");
+
+function log(msg) {
+  const time = new Date().toLocaleTimeString();
+  consoleLog.innerText += `[${time}] ${msg}\n`;
+  consoleLog.parentElement.scrollTop = consoleLog.parentElement.scrollHeight;
+}
+
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
 const playBtn = document.getElementById("playBtn");
