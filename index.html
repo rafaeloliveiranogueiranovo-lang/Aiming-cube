@@ -40,5 +40,31 @@
 <canvas id="game"></canvas>
 
 <script src="game.js"></script>
+
+  <div id="consoleBox">
+  <div id="consoleLog"></div>
+</div>
+
+<style>
+  #consoleBox {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    background: #000;
+    border-top: 2px solid #00ff88;
+    font-family: monospace;
+    font-size: 14px;
+    overflow-y: auto;
+    z-index: 999;
+  }
+
+  #consoleLog {
+    padding: 8px;
+    color: #00ff88;
+    white-space: pre-line;
+  }
+</style>
 </body>
 </html>
