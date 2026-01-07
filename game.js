@@ -92,7 +92,7 @@ function update() {
     player.vy = 0;
     player.y = platform.y - player.size;
   }
-
+  
   // Caiu
   if (player.y > canvas.height) {
     running = false;
