@@ -1,3 +1,10 @@
+function log(msg) {
+  const c = document.getElementById("console");
+  if (c) {
+    c.innerHTML += "<br>" + msg;
+    c.scrollTop = c.scrollHeight;
+  }
+}
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
 const playBtn = document.getElementById("playBtn");
