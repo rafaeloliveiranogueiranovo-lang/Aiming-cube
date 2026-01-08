@@ -116,22 +116,29 @@ function update() {
   }
 
   // Colisão com trampolim
-  if (
-    player.x < trampoline.x + trampoline.width &&
-    player.x + player.size > trampoline.x &&
-    player.y + player.size >= trampoline.y &&
-    player.y + player.size <= trampoline.y + trampoline.height &&
-    player.vy > 0
-  ) {
-    score++;
-    resetPlayer();
-  }
+if (
+  player.x < trampoline.x + trampoline.width &&
+  player.x + player.size > trampoline.x &&
+  player.y + player.size >= trampoline.y &&
+  player.y + player.size <= trampoline.y + trampoline.height &&
+  player.vy > 0
+) {
+  score++;
 
-  // Caiu no chão
-  if (player.y > canvas.height) {
-    score = 0;
-    resetPlayer();
-  }
+  // Posiciona o player em cima do trampolim
+  player.y = trampoline.y - player.size;
+
+  // Impulso para cima (efeito trampolim)
+  player.vy = -12;
+
+  player.jumping = true;
+}
+
+  // Colisão com o chão
+if (player.y + player.size >= ground.y) {
+  player.y = ground.y - player.size;
+  player.vy = 0;
+  player.jumping = false;
 }
 
 function draw() {
