@@ -100,7 +100,24 @@ function resetPlayer() {
 }
 
 function update() {
-  // if (!gameStarted) return;
+  if (!gameStarted) return;
+
+  if (player.jumping) {
+    player.vy += player.gravity;
+    player.x += player.vx;
+    player.y += player.vy;
+  }
+
+  trampoline.x += trampoline.speed * trampoline.dir;
+  if (trampoline.x <= 0 || trampoline.x + trampoline.width >= canvas.width) {
+    trampoline.dir *= -1;
+  }
+
+  // Caiu fora da tela
+if (player.y > canvas.height) {
+  score = 0;
+  resetPlayer();
+}
 
   // Gravidade
   if (player.jumping) {
@@ -125,15 +142,13 @@ if (
 ) {
   score++;
 
-  // Posiciona o player em cima do trampolim
+  // joga o player para cima
   player.y = trampoline.y - player.size;
-
-  // Impulso para cima (efeito trampolim)
   player.vy = -12;
 
+  // evita colisão contínua
   player.jumping = true;
 }
-
   // Colisão com o chão
 if (player.y + player.size >= ground.y) {
   player.y = ground.y - player.size;
