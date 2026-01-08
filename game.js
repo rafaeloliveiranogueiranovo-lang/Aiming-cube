@@ -25,13 +25,20 @@ let score = 0;
 const player = {
   size: 30,
   x: canvas.width / 2,
-  y: canvas.height - 100,
+  y: canvas.height - 110,
   vx: 0,
   vy: 0,
   gravity: 0.5,
   jumping: false
 };
 
+const ground = {
+  x: 0,
+  y: canvas.height - 80,
+  width: canvas.width,
+  height: 80,
+  color: "#1e1e1e" // pode mudar depois
+};
 // =====================
 // TRAMPOLIM
 // =====================
@@ -129,6 +136,10 @@ function update() {
 
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Chão
+ctx.fillStyle = ground.color;
+ctx.fillRect(ground.x, ground.y, ground.width, ground.height);
 
   // Quadrado
   ctx.fillStyle = "#00ff88";
