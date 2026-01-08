@@ -15,10 +15,22 @@
     }
 
     canvas {
-      display: block;
-      background: #222;
-    }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #222;
+  display: block;
+}
 
+#playBtn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
     #playBtn {
       position: absolute;
       top: 50%;
@@ -36,9 +48,8 @@
 </head>
 <body>
 
+  <canvas id="game"></canvas>
 <button id="playBtn">PLAY</button>
-<canvas id="game"></canvas>
-
 <script src="game.js"></script>
 
   <div id="consoleBox">
