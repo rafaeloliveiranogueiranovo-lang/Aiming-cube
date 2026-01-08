@@ -100,7 +100,7 @@ function resetPlayer() {
 }
 
 function update() {
-  if (!gameStarted) return;
+  // if (!gameStarted) return;
 
   // Gravidade
   if (player.jumping) {
